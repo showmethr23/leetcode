@@ -22,3 +22,7 @@ class Solution:
             current.next = l2
             
         return dummy.next
+
+        # Solution 2
+
+
