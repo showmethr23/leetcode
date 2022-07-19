@@ -40,3 +40,16 @@ class Solution:
             else:
                 return False
 
+        # Solution 4
+        # using set
+
+        hashset = set()
+
+        for i in nums:
+            if i in hashset:
+                return True
+            else:
+                hashset.add(i)
+
+        return False
+        
