@@ -10,3 +10,7 @@ class Solution:
             anagrams[''.join(sorted(word))].append(word)
         
         return list(anagrams.values())
+
+        # Solution 2
+
+
