@@ -41,3 +41,19 @@ class Solution:
             elif prices[i] - min_price > max_profit:
                 max_profit = prices[i] - min_price
         return max_profit
+
+        # Solution 3
+        # using two pointers
+
+        max_profit = 0
+        
+        l = 0
+
+        for r in range(1, len(prices)):
+
+            if prices[l] < prices[r]:
+                max_profit = max(max_profit, prices[r] - prices[l])
+            else:
+                l = r
+            r += 1
+        return max_profit
