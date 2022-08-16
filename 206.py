@@ -32,6 +32,6 @@ class Solution:
             head.next.next = head
         head.next = None
 
-        return new Head
+        return newHead
 
         
