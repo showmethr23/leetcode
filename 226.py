@@ -9,4 +9,18 @@ class Solution:
     def invertTrees(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
 
         # Solution 1
+        # Recursively
+
+        # base case
+        if not root:
+            return None
+
+        temp = root.left
+        root.left = root.right
+        root.right = temp
+
+        self.invertTrees(root.left)
+        self.invertTrees(root.right)
+
+        return root
 
