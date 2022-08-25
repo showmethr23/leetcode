@@ -9,5 +9,33 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
 
         # Solution 1
+        # Recursion
 
+        if not root:
+            return 0
+
+        left_height = self.maxDepth(root.left)
+        right_height = self.maxDepth(root.right)
+        return max(left_height, right_height) + 1
+
+
+        # Solution 2
+        # Iteration
+
+        stack = []
+
+        if not root:
+            return 0
+
+        if root is not None:
+            stack.append(1, root)
+
+        depth = 0
+        while stack != []:
+            curr_depth, root = stack.pop()
+            if root is not None:
+                depth = max(depth, curr_depth)
+                stack.append(curr_depth+1, root.left)
+                stack.append(curr_depth+1, root.right)
+        return depth
 
