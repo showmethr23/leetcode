@@ -14,5 +14,17 @@ class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
 
         # Solution 1
-        
+        # Recursion
+
+        def valid(node, left, right):
+            if not node:
+                return True
+
+            if not (left < node.val and node.val < right):
+                return False
+
+            return valid(root.left, left, node.val) and valid(root.right, node.val, right)
+
+        return valid(root, float('-inf'), float('inf))
+
 
