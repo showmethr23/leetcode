@@ -29,3 +29,23 @@ class Solution:
                 else:
                     return common[:-1]
         return common
+
+        # Solution 3
+
+        # Base Case
+        if len(strs) == 0:
+            return ""
+        if len(strs) == 1:
+            return strs[0]
+
+        res = ""
+        strs.sort()
+
+        for x, y in zip(strs[0], strs[-1]):
+            if x == y:
+                res += x
+            eles:
+                break
+
+        return res
+        
