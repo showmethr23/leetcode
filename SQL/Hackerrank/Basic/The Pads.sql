@@ -2,5 +2,6 @@
     The Pads
 */
 
-select concat(name, "(", left(occupation, 1), ")") from occupations order by name;
-select concat("There are a total of ", count(occupation), " ", lower(occupation)) from occupations group by occupation order by count(occupation), occupation;
+select concat(Name, '(', substring(occupation, 1,1), ')') from OCCUPATIONS order by Name;
+
+select concat('There are a total of ', count(Occupation), ' ', lower(Occupation), 's.') from OCCUPATIONS group by Occupation order by count(Occupation), Occupation;
