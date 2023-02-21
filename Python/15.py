@@ -7,6 +7,9 @@ class Solution:
         if len(nums) < 3:
             return []
 
+        if len(nums) == 3 and (nums[0]+nums[1]+nums[2]) != 0:
+            return []
+
         res = []
         nums.sort()
 
