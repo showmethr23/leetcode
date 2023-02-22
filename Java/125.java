@@ -1,33 +1,48 @@
 class Solution {
-    public boolean isPalindrome(String s) {
-        
-        int l = 0;
-        int r = s.length() - 1;
+    public List<List<Integer>> threeSum(int[] nums) {
+        LinkedList<List<Integer>> res = new LinkedList<>();
 
-        while (l < r){
-            Character start = s.charAt(l);
-            Character end   = s.charAt(r);
-
-            if (!Character.isLetterOrDigit(start)){
-                l++;
-                continue;
-            }
-
-            if (!Character.isLetterOrDigit(end)){
-                r--;
-                continue;
-            }
-
-            if (Character.toLowerCase(start) != Character.toLowerCase(end)){
-                return false;
-            }
-
-
-            l++;
-            r--;
+        // base case
+        if (nums.length < 3){
+            return res;
+        }
+        if (nums.length == 3 && (nums[0]+nums[1]+nums[2]) != 0){
+            return res;
         }
 
-        return true;
+        Arrays.sort(nums);
+        LinkedList<List<Integer>> sol = new LinkedList<List<Integer>>();
 
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (i == 0 || (i > 0 && nums[i] != nums[i - 1])) {
+                int target = 0 - nums[i];
+                int left = i + 1;
+                int right = nums.length - 1;
+
+                while (left < right) {
+                    if (nums[left] + nums[right] == target) {
+                        ArrayList<Integer> miniSol = new ArrayList<>();
+                        miniSol.add(nums[i]);
+                        miniSol.add(nums[left]);
+                        miniSol.add(nums[right]);
+                        sol.add(miniSol);
+                        while (left < right && nums[left] == nums[left + 1]) {
+                            left++;
+                        }
+                        while (left < right && nums[right] == nums[right - 1]) {
+                            right--;
+                        }
+                        left++;
+                        right--;
+                    } else if (nums[left] + nums[right] > target) {
+                        right--;
+                    } else {
+                        left++;
+                    }
+                }
+            }
+        }
+
+        return sol;
     }
 }
