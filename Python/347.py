@@ -5,8 +5,8 @@ class Solution:
         # using the bucket sort
 
         count = {} # make a hash map for counting numbers 
-        freq = [[] for i in range(len(nums) + 1)] # this is for number of counts 
-                                                  # good thing to know is that this only requires the length of input nums
+        freq = [[] for i in range(len(nums) + 1)]   # this is for number of counts 
+                                                    # good thing to know is that this only requires the length of input nums
 
         # add input numbers in the hash map
         for n in nums:
