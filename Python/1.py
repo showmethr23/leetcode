@@ -28,7 +28,7 @@ class Solution:
         # Solution 3
 
         visited = {}
-        for index number in enumerate(nums):
+        for index, number in enumerate(nums):
             difference = target - number
             if difference in visited:
                 return [visited[difference], index]
