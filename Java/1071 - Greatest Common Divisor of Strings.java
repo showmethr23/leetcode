@@ -52,7 +52,7 @@ Constraints:
 
 */
 
-// Solution 1 - 
+// Solution 1 - Recursive GCD
 class Solution {
     private int gcd(int a, int b){
         if (b == 0){
