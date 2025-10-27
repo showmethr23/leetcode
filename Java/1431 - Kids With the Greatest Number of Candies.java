@@ -66,6 +66,24 @@ Constraints:
 
 class Solution {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
-        
+        List<Boolean> res = new ArrayList<>();
+        int max_num = 0;
+
+        // To find the maximum numberof 
+        for (int candy : candies){
+            if (candy > max_num){
+                max_num = candy;
+            }
+        }
+
+        for (int candy : candies){
+            if (candy + extraCandies >= max_num){
+                res.add(true);
+            }else{
+                res.add(false);
+            }
+        }
+
+        return res;
     }
 }
